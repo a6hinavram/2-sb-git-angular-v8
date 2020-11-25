@@ -5,7 +5,14 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html'
 })
 export class AppComponent {
-  title = 'my-first-app';  
+ public today = Date.now(); 
+  todayDate =  new Date().toISOString();
 
+  constructor() {
 
+    setInterval(() => {
+      this.today = Date.now();
+    }, 100);
+      }
+  
 }
