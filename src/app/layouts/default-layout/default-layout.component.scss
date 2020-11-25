@@ -1,0 +1,39 @@
+// default-layout.component.scss 			~/layouts/default-layout/
+////////////////////////////////////////////////////////////
+
+@import "../../../styles/config";
+
+$page-width: rem-calc(1200) !default;
+$page-background: $steel !default;
+
+:host {
+  display: block;
+  background-color: $page-background;
+}
+
+main {
+  width: 100%;
+  max-width: $page-width;
+  margin: 0 auto;
+  background-color: red;
+}
+
+mat-toolbar {
+  justify-content: space-between
+}
+
+nav {
+  display: none;
+  @media #{$medium-up} {
+    display: block;
+  }
+}
+
+mat-sidenav-container {
+  height: 100vh;
+}
+
+mat-sidenav {
+  width: rem-calc(300);
+  height: 100vh;
+}
