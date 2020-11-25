@@ -5,7 +5,14 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html'
 })
 export class AppComponent {
-  title = 'my-first-app';  
+ 
+ //String Interpolation
+ title = 'my-first-app';  
+  serverID: number = 10;  
+  serverStatus: string = 'Online';  
+  fullName: string = 'Robert Junior';  
+
+  isDisabled: boolean = true; 
 
 
 }
