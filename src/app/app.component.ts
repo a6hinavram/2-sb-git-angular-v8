@@ -1,15 +1,15 @@
 import { Component } from "@angular/core";
-import { FormControl } from "@angular/forms";
+import { QuestionService } from './forms-reactive-dynamic/question.service';
 
 @Component({
   selector: "app-root",
-  templateUrl: "./app.component.html"
+  templateUrl: "./app.component.html",
+  providers:  [QuestionService]
 })
 export class AppComponent {
-  name = new FormControl("test");
-  cars = new FormControl("mercedes-101");
+  questions: any[];
 
-  updateName() {
-    this.name.setValue("Nancy");
+  constructor(service: QuestionService) {
+    this.questions = service.getQuestions();
   }
 }

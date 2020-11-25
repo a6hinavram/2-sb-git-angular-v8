@@ -1,16 +1,5 @@
-<label>
-  Name:
-  <input type="text" [formControl]="name">
-  <button (click)="updateName()">Update Name</button>
-  {{ name.value }}
-</label>
 
-<br>
-
-
-<select [formControl]="cars">
-  <option value="volvo">Volvo</option>
-  <option value="saab">Saab</option>
-  <option value="mercedes-101">Mercedes</option>
-  <option value="audi">Audi</option>
-</select>
+<h1>Reactive Forms Dynamic</h1>
+<app-dynamic-form [questions]="questions"></app-dynamic-form>
+{{questions | json}}
+ 
