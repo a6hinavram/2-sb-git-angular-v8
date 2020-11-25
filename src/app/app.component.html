@@ -1,16 +1,40 @@
-<label>
-  Name:
-  <input type="text" [formControl]="name">
-  <button (click)="updateName()">Update Name</button>
-  {{ name.value }}
-</label>
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
 
-<br>
+	<label>
+    First Name:
+    <input type="text" formControlName="firstName">
+  </label>
+
+	<label>
+    Last Name:
+    <input type="text" formControlName="lastName">
+  </label>
 
 
-<select [formControl]="cars">
-  <option value="volvo">Volvo</option>
-  <option value="saab">Saab</option>
-  <option value="mercedes-101">Mercedes</option>
-  <option value="audi">Audi</option>
-</select>
+  <div formGroupName="address">
+  <h3>Address</h3>
+
+  <label>
+    Street:
+    <input type="text" formControlName="street">
+  </label>
+
+  <label>
+    City:
+    <input type="text" formControlName="city">
+  </label>
+  
+  <label>
+    State:
+    <input type="text" formControlName="state">
+  </label>
+
+  <label>
+    Zip Code:
+    <input type="text" formControlName="zip">
+  </label>
+</div>
+
+	<button type="submit" [disabled]="!profileForm.valid">Submit</button>
+{{profileForm.value | json}}
+</form>
