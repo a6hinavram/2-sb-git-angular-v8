@@ -1,1 +1,15 @@
-Hello World
+
+<form (ngSubmit)="onSubmit()" #userForm="ngForm">
+<div *ngFor="let item of data">
+
+	<label>{{item.label}}</label>
+	<div [ngSwitch]="item.field_type">
+
+		<input *ngSwitchCase="'text'" [id]="item.key" [value]="item.value" [required]="item.required">
+
+		<select *ngSwitchCase="'select'" [id]="item.key">
+      <option *ngFor="let opt of item.options" [value]="opt.key">{{opt.value}}</option>
+</select>
+</div>
+</div>
+</form>
