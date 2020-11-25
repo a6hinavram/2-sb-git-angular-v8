@@ -1,16 +1,12 @@
-<label>
-  Name:
-  <input type="text" [formControl]="name">
-  <button (click)="updateName()">Update Name</button>
-  {{ name.value }}
-</label>
+Form Builder
+<div formArrayName="aliases">
+  <h3>Aliases</h3> <button (click)="addAlias()">Add Alias</button>
 
-<br>
-
-
-<select [formControl]="cars">
-  <option value="volvo">Volvo</option>
-  <option value="saab">Saab</option>
-  <option value="mercedes-101">Mercedes</option>
-  <option value="audi">Audi</option>
-</select>
+  <div *ngFor="let address of aliases.controls; let i=index">
+    <!-- The repeated alias template -->
+    <label>
+      Alias:
+      <input type="text" [formControlName]="i">
+    </label>
+  </div>
+</div>
