@@ -1,1 +1,48 @@
-Hello World
+
+<form (ngSubmit)="onSubmit()" [formGroup]="form">
+<div *ngFor="let item of data2">
+
+	
+	<div [ngSwitch]="item.field_type">
+
+<!-- qwDateTime -->
+
+<!-- qwLookup -->
+<div *ngSwitchCase="'popup'">
+<label>{{item.label}} <span *ngIf="item.required">*</span></label>
+
+<select [formControlName]="item.key">
+  <optgroup label={{opt.Question}} *ngFor="let opt of item.options">
+    <option *ngFor="let op of opt.opts" [value]="op">{{op}}</option>
+  </optgroup>
+</select>
+</div>
+
+<!-- qwText -->
+<div *ngSwitchCase="'text'">
+<label>{{item.label}} <span *ngIf="item.required">*</span></label>
+		<input [id]="item.key" 
+    [formControlName]="item.key"
+    >
+</div>
+
+<!-- qwNumeric -->
+<div *ngSwitchCase="'numeric'">
+<label>{{item.label}} <span *ngIf="item.required">*</span></label>
+		<input type="number" [id]="item.key"
+    [formControlName]="item.key"
+    >
+</div>
+    
+		
+
+</div>
+</div>
+
+<div class="form-row">
+      <button type="submit" [disabled]="!form.valid">Save</button>
+    </div>
+</form>
+ <div *ngIf="payLoad" class="form-row">
+    <strong>Saved the following values</strong><br>{{payLoad}}
+  </div>
