@@ -8,4 +8,9 @@ export class AppComponent {
   title = 'my-first-app';  
 
 
+  myFunction(){
+    alert("test");
+  }
+
+
 }
